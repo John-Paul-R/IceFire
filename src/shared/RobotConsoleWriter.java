@@ -9,10 +9,10 @@ public class RobotConsoleWriter {
 	private String _format;
 	private AdvancedRobot _robot;
 	
-	public RobotConsoleWriter(PrintStream printStream, AdvancedRobot robot)
+	public RobotConsoleWriter(PrintStream printStream, String sourceName, AdvancedRobot robot)
 	{
 		_oStream = printStream;
-		_format = new String("[%d] %s");
+		_format = new String("[%d] ["+sourceName+"] %s");
 		_robot = robot;
 	}
 	

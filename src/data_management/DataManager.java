@@ -25,22 +25,27 @@ import robocode.ScannedRobotEvent;
 import robocode.SkippedTurnEvent;
 import robocode.StatusEvent;
 import robocode.WinEvent;
+import shared.RobotConsoleWriter;
 
 public class DataManager implements Manager
 {
+	
 	private AdvancedRobot _self;
 	private HashMap<String, Enemy> _enemies;
 	private LinkedList<BotState> _selfData;
 	private BotState cSelf;
 	private Enemy cTarget;
 	private String cTargetName;
-	public DataManager() {}
+
+	protected final RobotConsoleWriter console;
 	
-	public void init(AdvancedRobot self) 
+	public DataManager(AdvancedRobot self) 
 	{
 		_self = self;
 		_enemies = new HashMap<String, Enemy>();
 		_selfData = new LinkedList<BotState>();
+		console = new RobotConsoleWriter(System.out, this.getClass().getCanonicalName(), _self);
+		console.println("Created!");
 	}
 	
 	//Do

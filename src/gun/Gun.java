@@ -7,6 +7,7 @@ import data_management.DataManager;
 import data_management.Enemy;
 import origin.Manager;
 import robocode.AdvancedRobot;
+import shared.RobotConsoleWriter;
 import shared.Utils;
 
 public abstract class Gun implements Manager
@@ -15,12 +16,14 @@ public abstract class Gun implements Manager
 	protected DataManager _data;
 	protected BulletPowerSelector _powerSelector;
 	protected Enemy _target;
-	
+	protected final RobotConsoleWriter console;
 	public Gun(AdvancedRobot self, DataManager data, BulletPowerSelector powerSelector)
 	{
 		_self = self;
 		_data = data;
 		_powerSelector = powerSelector;
+		console = new RobotConsoleWriter(System.out, this.getClass().getCanonicalName(), _self);
+		console.println("Created!");
 	}
 	
 	public void aimToCoordinate(Point2D.Double coords)

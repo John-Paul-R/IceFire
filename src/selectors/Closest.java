@@ -5,12 +5,13 @@ import java.util.Map;
 import data_management.Bot;
 import data_management.DataManager;
 import data_management.Enemy;
+import robocode.AdvancedRobot;
 
 public class Closest extends TargetSelector
 {
-	public Closest(DataManager data) 
+	public Closest(AdvancedRobot self, DataManager data) 
 	{
-		super(data);
+		super(self, data);
 	}
 
 	@Override
